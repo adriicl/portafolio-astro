@@ -1,0 +1,32 @@
+---
+const jobs = [
+  { title: "API Valorant", description: "A modern and responsive web application built with React and Node.js.", link: "https://adriicl.github.io/Valorant/", image: "../public/img/valorant.webp" },
+  { title: "Marvel", description: "An interactive UI design built with Tailwind CSS and Framer Motion.", link: "/projects/project-two", image: "../public/img/marvel.jpg" },
+  { title: "Project Three", description: "A full-stack e-commerce platform powered by Laravel and Vue.js.", link: "/projects/project-three", image: "../public/img/futbol.webp" }
+];
+---
+
+<section class="w-full text-white py-16 px-6 flex flex-col items-center bg-[#191a1a] bg-[linear-gradient(180deg,transparent_24%,rgba(0,115,19,0.3)_25%,rgba(0,115,19,0.3)_26%,transparent_27%,transparent_74%,rgba(0,115,19,0.3)_75%,rgba(0,115,19,0.3)_76%,transparent_77%,transparent),linear-gradient(45deg,transparent_24%,rgba(0,115,19,0.3)_35%,rgba(0,115,19,0.3)_26%,transparent_17%,transparent_74%,rgba(0,115,19,0.3)_75%,rgba(0,115,19,0.3)_76%,transparent_77%,transparent)] bg-[55px_55px]">
+  <h2 class="text-4xl font-bold text-green-400 mb-10">Some Jobs</h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+    {jobs.map(job => (
+    <a href={job.link} class="group block" target="_blank">
+      <div class="relative border border-green-400 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 flex flex-col justify-center items-center text-center overflow-hidden h-[300px] w-full">
+        
+        <!-- Imagen de fondo -->
+        <div 
+          class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:blur-md group-hover:brightness-75"
+          style={`background-image: url(${job.image});`}
+        ></div>
+
+        <!-- Contenido que aparece en hover -->
+        <div class="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 px-4">
+          <h3 class="text-3xl font-bold text-green-400 mb-3">{job.title}</h3>
+          <p class="text-white mb-6 font-semibold">{job.description}</p>
+        </div>
+      </div>
+    </a>
+    ))} 
+    </div>
+</section>
