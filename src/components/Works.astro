@@ -1,0 +1,43 @@
+---
+const projects = [
+  { title: "Valorant API", description: "A web application utilizing the Riot Games API to fetch Valorant data.", link: "https://adriicl.github.io/Valorant/", image: "/img/valorant.webp" },
+  { title: "Marvel App", description: "A UI project showcasing Marvel content using Tailwind and Framer Motion.", link: "/projects/marvel", image: "/img/marvel.jpg" },
+  { title: "E-commerce Platform", description: "A full-stack Laravel & Vue.js based online shop.", link: "/projects/ecommerce", image: "/img/futbol.webp" },
+  { title: "E-commerce Platform", description: "A full-stack Laravel & Vue.js based online shop.", link: "/projects/ecommerce", image: "/img/futbol.webp" },
+  { title: "E-commerce Platform", description: "A full-stack Laravel & Vue.js based online shop.", link: "/projects/ecommerce", image: "/img/futbol.webp" }
+
+];
+---
+
+<section class="w-full text-white py-16 px-6 flex flex-col items-center bg-[#191a1a]">
+  <div class="w-full max-w-6xl grid grid-cols-1 gap-8 mt-20">
+    
+    <!-- Proyecto Principal (Valorant API) -->
+    <a href={projects[0].link} target="_blank" class="group relative p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center text-center overflow-hidden">
+      <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:backdrop-blur-md group-hover:bg-opacity-80 transition-all duration-300"></div>
+      <img src={projects[0].image} alt={projects[0].title} class="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:blur-md" />
+      
+      <!-- Texto oculto hasta hover -->
+      <div class="relative z-10 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <h3 class="text-3xl font-bold text-green-400">{projects[0].title}</h3>
+        <p class="text-lg text-white mt-4">{projects[0].description}</p>
+      </div>
+    </a>
+
+    <!-- Dos proyectos secundarios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projects.slice(1).map(project => (
+        <a href={project.link} target="_blank" class="group relative p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center text-center overflow-hidden">
+          <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:backdrop-blur-md group-hover:bg-opacity-80 transition-all duration-300"></div>
+          <img src={project.image} alt={project.title} class="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:blur-md" />
+          
+          <!-- Texto oculto hasta hover -->
+          <div class="relative z-10 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-2xl font-bold text-green-400">{project.title}</h3>
+            <p class="text-lg text-white mt-4">{project.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

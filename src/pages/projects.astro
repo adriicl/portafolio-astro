@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
+import Works from "../components/Works.astro";
 const pageTitle = "Works";
 ---
 
@@ -13,7 +14,10 @@ const pageTitle = "Works";
 	</head>
 	<body>
 		<BaseLayout pageTitle={pageTitle}>
-			
+			<main>
+				<Works />
+			</main>
+			<hr class="border-t-2 border-green-400" />
 		</BaseLayout>
 	</body>
 </html>
