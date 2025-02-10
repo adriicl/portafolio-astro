@@ -7,6 +7,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: "https://adriicl.netlify.app",
+  base: "/",
   output: 'server',
   adapter: netlify({
     edgeMiddleware: true
