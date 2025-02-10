@@ -6,6 +6,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://tu-sitio.netlify.app",
+  site: "https://adriicl.netlify.app",
   base: "/",
 });
