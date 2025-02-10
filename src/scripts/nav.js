@@ -6,3 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenu = document.getElementById("close-menu");
+  
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("-translate-x-full");
+      mobileMenu.classList.toggle("translate-x-0");
+    });
+  
+    closeMenu.addEventListener("click", () => {
+      mobileMenu.classList.toggle("translate-x-0");
+      mobileMenu.classList.toggle("-translate-x-full");
+    });
+  });
+  

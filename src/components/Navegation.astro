@@ -14,8 +14,8 @@ const links = [
       Adrian Cabrera Leonis
     </div>
     
-    <!-- Navegación alineada completamente a la derecha -->
-    <ul class="flex space-x-6 text-lg">
+    <!-- Menú para escritorio -->
+    <ul class="hidden md:flex space-x-6 text-lg">
       {links.map((link) => (
         <li>
           <a 
@@ -28,9 +28,29 @@ const links = [
         </li>
       ))}
     </ul>
+
+    <!-- Botón hamburguesa para móviles -->
+    <button id="menu-toggle" class="md:hidden text-green-400 focus:outline-none">
+      <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12h18M3 6h18M3 18h18"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menú desplegable en móviles -->
+  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-[#191a1a] text-white flex flex-col items-center justify-center space-y-6 transform -translate-x-full transition-transform duration-300 md:hidden">
+    {links.map((link) => (
+      <a href={link.href} class="text-2xl font-semibold hover:text-green-400 transition">
+        {link.name}
+      </a>
+    ))}
+
+    <!-- Botón de cierre más grande y abajo -->
+    <button id="close-menu" class="absolute bottom-7 text-green-400 text-5xl">
+      &times;
+    </button>
   </div>
 </nav>
 
-<script>
-  import "../scripts/nav.js";
-</script>
+<!-- Importando el JavaScript -->
+<script src="../scripts/nav.js"></script>
