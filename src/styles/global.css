@@ -1,24 +1,41 @@
 @import "tailwindcss";
 
+/* Animación para Fade-in */
 @keyframes fade-in {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in {
+}
+.animate-fade-in {
     animation: fade-in 1s ease-out;
-  }
+}
 
-  :root {
+/* Variables de colores para modo claro y oscuro */
+:root {
     --color: rgba(0, 115, 19, 0.3);
-  }
-  
-  body {
+    --bg-color: #ffffff; /* Fondo blanco en modo claro */
+    --text-color: #000000; /* Texto negro en modo claro */
+    --primary-color: #00732b; /* Verde en ambos modos */
+    --border-color: #008f39; /* Verde más fuerte para bordes */
+}
+
+/* Modo oscuro */
+.dark {
+    --bg-color: #191a1a;
+    --text-color: #ffffff;
+    --border-color: #00ff85;
+}
+
+/* Aplicar cambios a body */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
     margin: 0;
     padding: 0;
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
-    background-color: #191a1a;
+    background-color: var(--bg-color);
     background-image: linear-gradient(
         180deg,
         transparent 24%,
@@ -30,8 +47,8 @@
         var(--color) 76%,
         transparent 77%,
         transparent
-      ),
-      linear-gradient(
+    ),
+    linear-gradient(
         45deg,
         transparent 24%,
         var(--color) 35%,
@@ -42,8 +59,90 @@
         var(--color) 76%,
         transparent 77%,
         transparent
-      );
+    );
     background-size: 150px 150px;
     background-repeat: repeat;
     background-attachment: fixed; /* Mantiene el fondo fijo */
+}
+
+/* Estilos generales */
+.border-primary {
+    border-color: var(--border-color);
+}
+
+/* Botón flotante para cambiar de tema */
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 16px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--border-color);
+    transform: scale(1.1);
+}
+/* Estilos para el header y navegación */
+nav {
+  background: var(--bg-color);
+  border-bottom: 2px solid var(--border-color);
+  transition: background 0.3s ease;
+}
+
+nav a {
+  color: var(--text-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--border-color);
+}
+
+/* Estilos para los proyectos */
+.project-card {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  background: var(--border-color);
+  transform: scale(1.05);
+  color: var(--bg-color);
+}
+
+/* Estilos para el formulario */
+form input, form textarea {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  transition: border 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+  border: 2px solid var(--border-color);
+  outline: none;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  body {
+      background-size: 100px 100px;
   }
+
+  .theme-toggle-btn {
+      bottom: 15px;
+      right: 15px;
+      padding: 10px 12px;
+      font-size: 1.2rem;
+  }
+}

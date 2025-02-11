@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
+import Form from "../components/Form.astro";
 const pageTitle = "Contact";
 ---
 
@@ -13,6 +14,7 @@ const pageTitle = "Contact";
 	</head>
 	<body>
 		<BaseLayout pageTitle={pageTitle}>
+			<Form />
 		</BaseLayout>
 	</body>
 </html>
