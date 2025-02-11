@@ -8,25 +8,16 @@
     animation: fade-in 1s ease-out;
   }
 
-  html, body {
+  :root {
+    --color: rgba(0, 115, 19, 0.3);
+  }
+  
+  body {
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
-    overflow-x: hidden; /* Evita el scroll horizontal */
-    background-color: #191a1a; /* Asegurar el fondo */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  
-  
-  .container {
-    width: 100vw;
-    min-height: 100vh; /* Asegura que cubra toda la pantalla */
-    overflow: hidden;
-    --color: rgba(0, 115, 19, 0.3);
+    min-height: 100vh;
+    overflow-x: hidden;
     background-color: #191a1a;
     background-image: linear-gradient(
         180deg,
@@ -52,10 +43,7 @@
         transparent 77%,
         transparent
       );
-    background-size: 150px 150px; /* Aumentar patrón */
-    background-repeat: repeat; /* Asegurar que se repita */
-    background-attachment: fixed;
+    background-size: 150px 150px;
+    background-repeat: repeat;
+    background-attachment: fixed; /* Mantiene el fondo fijo */
   }
-  
-
-
