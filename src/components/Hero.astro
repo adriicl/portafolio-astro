@@ -4,15 +4,16 @@ const buttonText = "Contact Me";
 const secondaryButtonText = "View Projects";
 ---
 
-<section class="relative w-full h-screen flex items-center justify-between px-12 bg-[#191a1a] bg-[linear-gradient(180deg,transparent_24%,rgba(0,115,19,0.3)_25%,rgba(0,115,19,0.3)_26%,transparent_27%,transparent_74%,rgba(0,115,19,0.3)_75%,rgba(0,115,19,0.3)_76%,transparent_77%,transparent),linear-gradient(45deg,transparent_24%,rgba(0,115,19,0.3)_35%,rgba(0,115,19,0.3)_26%,transparent_17%,transparent_74%,rgba(0,115,19,0.3)_75%,rgba(0,115,19,0.3)_76%,transparent_77%,transparent)] bg-[55px_55px]">
-  <div class="max-w-4xl text-left">
-    <!-- Texto Principal -->
+<section class="relative w-full h-screen flex flex-col md:flex-row items-center justify-between px-12 overflow-hidden">
+  
+  <!-- Contenedor del texto -->
+  <div class="flex-1 max-w-4xl text-left">
     <p class="text-green-400 text-lg font-mono">Hi, my name is</p>
     <h1 class="text-6xl font-extrabold text-white mb-4">Adrián Cabrera Leonis</h1>
     <h2 class="text-5xl font-semibold text-gray-400 mb-6">I'm a Web Developer</h2>
     <p class="text-lg text-gray-300 max-w-lg leading-relaxed">{heroText}</p>
     
-    <!-- Botones de llamada a la acción -->
+    <!-- Botones -->
     <div class="mt-8 flex space-x-4">
       <a href="/contact" class="border border-green-400 text-green-400 px-6 py-3 text-lg font-medium rounded-md transition hover:bg-green-400 hover:text-[#0a192f]">
         {buttonText}
@@ -24,7 +25,8 @@ const secondaryButtonText = "View Projects";
   </div>
 
   <!-- Imagen a la derecha -->
-  <div class="w-1/3 max-w-md animate-fade-in">
-    <img src="img/developer.png" alt="Web Developer Illustration" class="w-full h-auto object-contain">
+  <div class="flex-1 flex justify-end items-center">
+    <img src="img/developer.png" alt="Web Developer Illustration" class="w-full h-auto max-w-lg object-contain">
   </div>
+
 </section>

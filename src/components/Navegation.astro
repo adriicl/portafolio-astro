@@ -10,9 +10,11 @@ const links = [
   <div class="w-full flex items-center justify-between">
     
     <!-- Nombre alineado completamente a la izquierda -->
-    <div class="text-2xl font-bold tracking-wide transition-transform transform hover:scale-105 text-green-400">
-      Adrian Cabrera Leonis
-    </div>
+    <a href={links[0].href}>
+      <div class="text-2xl font-bold tracking-wide transition-transform transform hover:scale-105 text-green-400">
+        Adrian Cabrera Leonis
+      </div>
+    </a>
     
     <!-- Menú para escritorio -->
     <ul class="hidden md:flex space-x-6 text-lg">
@@ -46,7 +48,7 @@ const links = [
     ))}
 
     <!-- Botón de cierre más grande y abajo -->
-    <button id="close-menu" class="absolute bottom-7 text-green-400 text-5xl">
+    <button id="close-menu" class="absolute mt-70 text-green-400 text-5xl">
       &times;
     </button>
   </div>
