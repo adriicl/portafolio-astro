@@ -9,20 +9,20 @@
     animation: fade-in 1s ease-out;
 }
 
-/* Variables de colores para modo claro y oscuro */
+/* Tema oscuro por defecto */
 :root {
     --color: rgba(0, 115, 19, 0.3);
-    --bg-color: #ffffff; /* Fondo blanco en modo claro */
-    --text-color: #000000; /* Texto negro en modo claro */
-    --primary-color: #00732b; /* Verde en ambos modos */
-    --border-color: #008f39; /* Verde más fuerte para bordes */
+    --bg-color: #191a1a; /* Oscuro por defecto */
+    --text-color: #ffffff; /* Texto blanco en modo oscuro */
+    --primary-color: #00732b; /* Verde */
+    --border-color: #00ff85; /* Verde más fuerte */
 }
 
-/* Modo oscuro */
-.dark {
-    --bg-color: #191a1a;
-    --text-color: #ffffff;
-    --border-color: #00ff85;
+/* Modo claro (cuando se activa) */
+.light {
+    --bg-color: #ffffff; /* Blanco en modo claro */
+    --text-color: #000000; /* Texto negro en modo claro */
+    --border-color: #008f39;
 }
 
 /* Aplicar cambios a body */
@@ -35,7 +35,6 @@ body {
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
-    background-color: var(--bg-color);
     background-image: linear-gradient(
         180deg,
         transparent 24%,
@@ -62,7 +61,7 @@ body {
     );
     background-size: 150px 150px;
     background-repeat: repeat;
-    background-attachment: fixed; /* Mantiene el fondo fijo */
+    background-attachment: fixed;
 }
 
 /* Estilos generales */
@@ -90,59 +89,66 @@ body {
     background-color: var(--border-color);
     transform: scale(1.1);
 }
+
 /* Estilos para el header y navegación */
 nav {
-  background: var(--bg-color);
-  border-bottom: 2px solid var(--border-color);
-  transition: background 0.3s ease;
+    background: var(--bg-color);
+    border-bottom: 2px solid var(--border-color);
+    transition: background 0.3s ease;
 }
 
 nav a {
-  color: var(--text-color);
-  font-weight: bold;
-  transition: color 0.3s ease;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: var(--border-color);
+    color: var(--border-color);
 }
 
 /* Estilos para los proyectos */
 .project-card {
-  background: var(--bg-color);
-  border: 1px solid var(--border-color);
-  transition: background 0.3s ease, transform 0.2s ease;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .project-card:hover {
-  background: var(--border-color);
-  transform: scale(1.05);
-  color: var(--bg-color);
+    background: var(--border-color);
+    transform: scale(1.05);
+    color: var(--bg-color);
+}
+
+/* Estilos para los títulos */
+h1, h2, h3, p {
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
 
 /* Estilos para el formulario */
 form input, form textarea {
-  background: var(--bg-color);
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-  transition: border 0.3s ease;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    transition: border 0.3s ease;
 }
 
 form input:focus, form textarea:focus {
-  border: 2px solid var(--border-color);
-  outline: none;
+    border: 2px solid var(--border-color);
+    outline: none;
 }
 
 /* Responsive para pantallas pequeñas */
 @media (max-width: 768px) {
-  body {
-      background-size: 100px 100px;
-  }
+    body {
+        background-size: 100px 100px;
+    }
 
-  .theme-toggle-btn {
-      bottom: 15px;
-      right: 15px;
-      padding: 10px 12px;
-      font-size: 1.2rem;
-  }
+    .theme-toggle-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 12px;
+        font-size: 1.2rem;
+    }
 }
