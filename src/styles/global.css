@@ -12,16 +12,16 @@
 /* Tema oscuro por defecto */
 :root {
     --color: rgba(0, 115, 19, 0.3);
-    --bg-color: #191a1a; /* Oscuro por defecto */
-    --text-color: #ffffff; /* Texto blanco en modo oscuro */
-    --primary-color: #00732b; /* Verde */
-    --border-color: #00ff85; /* Verde más fuerte */
+    --bg-color: #191a1a;
+    --text-color: #ffffff;
+    --primary-color: #00732b;
+    --border-color: #00ff85;
 }
 
 /* Modo claro (cuando se activa) */
 .light {
-    --bg-color: #ffffff; /* Blanco en modo claro */
-    --text-color: #000000; /* Texto negro en modo claro */
+    --bg-color: #ffffff;
+    --text-color: #000000;
     --border-color: #008f39;
 }
 
@@ -137,18 +137,4 @@ form input, form textarea {
 form input:focus, form textarea:focus {
     border: 2px solid var(--border-color);
     outline: none;
-}
-
-/* Responsive para pantallas pequeñas */
-@media (max-width: 768px) {
-    body {
-        background-size: 100px 100px;
-    }
-
-    .theme-toggle-btn {
-        bottom: 15px;
-        right: 15px;
-        padding: 10px 12px;
-        font-size: 1.2rem;
-    }
 }
