@@ -1,42 +1,109 @@
 ---
 const projects = [
-  { title: "Valorant API", description: "This website is an interactive Valorant project, built using JavaScript, HTML, and Tailwind CSS. It allows users to explore agents, their abilities, game maps, and various weapons along with their skins. It features a visually engaging and dynamic interface with detailed information on each element, providing an immersive experience for fans of the game.", link: "https://adriicl.github.io/Valorant/", image: "/img/valorant.webp" },
-  { title: "Marvel App", description: "A UI project showcasing Marvel content using Tailwind and Framer Motion.", link: "/projects/marvel", image: "/img/marvel.jpg" },
-  { title: "E-commerce Platform", description: "A full-stack Laravel & Vue.js based online shop.", link: "/projects/ecommerce", image: "/img/futbol.webp" },
-  { title: "Portfolio Website", description: "My personal portfolio built with Astro and Tailwind CSS.", link: "/projects/portfolio", image: "/img/futbol.webp" },
-  { title: "AI Chatbot", description: "An AI-powered chatbot using OpenAI’s API.", link: "/projects/chatbot", image: "/img/futbol.webp" },
-  { title: "AI Chatbot", description: "An AI-powered chatbot using OpenAI’s API.", link: "/projects/chatbot", image: "/img/futbol.webp" },
-  { title: "AI Chatbot", description: "An AI-powered chatbot using OpenAI’s API.", link: "/projects/chatbot", image: "/img/futbol.webp" }
-
+  {
+    title: "API Valorant",
+    description:
+      "Sitio web interactivo de Valorant construido con JavaScript, HTML y Tailwind CSS, que permite explorar agentes, habilidades, mapas y armas con sus skins.",
+    link: "https://adriicl.github.io/Valorant/",
+    image: "/img/valorant.webp",
+    technologies: ["JavaScript", "HTML", "Tailwind CSS"],
+    category: "Frontend",
+  },
+  {
+    title: "Marvel App",
+    description:
+      "Diseño de interfaz mostrando contenido de Marvel con Tailwind y Framer Motion.",
+    link: "/projects/marvel",
+    image: "/img/marvel.jpg",
+    technologies: ["Tailwind CSS", "Framer Motion", "React"],
+    category: "UI/UX",
+  },
+  {
+    title: "E-commerce Platform",
+    description:
+      "Tienda online full‑stack basada en Laravel y Vue.js.",
+    link: "/projects/ecommerce",
+    image: "/img/futbol.webp",
+    technologies: ["Laravel", "Vue.js", "PHP", "MySQL"],
+    category: "Full-Stack",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "Portafolio personal construido con Astro y Tailwind CSS.",
+    link: "/projects/portfolio",
+    image: "/img/futbol.webp",
+    technologies: ["Astro", "Tailwind CSS"],
+    category: "Frontend",
+  },
+  {
+    title: "AI Chatbot",
+    description:
+      "Chatbot con IA utilizando la API de OpenAI.",
+    link: "/projects/chatbot",
+    image: "/img/futbol.webp",
+    technologies: ["OpenAI API", "Node.js"],
+    category: "AI/ML",
+  },
 ];
+
+const getCategoryColor = (category: string): string => {
+  switch (category) {
+    case "Frontend":
+      return "bg-blue-500/20 text-blue-400 border-blue-400/30";
+    case "UI/UX":
+      return "bg-purple-500/20 text-purple-400 border-purple-400/30";
+    case "Full-Stack":
+      return "bg-green-500/20 text-green-400 border-green-400/30";
+    case "AI/ML":
+      return "bg-emerald-500/20 text-emerald-400 border-emerald-400/30";
+    default:
+      return "bg-gray-500/20 text-gray-400 border-gray-400/30";
+  }
+};
 ---
 
-<section class="w-full text-white py-16 px-6 flex flex-col items-center">
-  <div class="w-full max-w-6xl grid grid-cols-1 gap-8 mt-20">
+<section class="w-full text-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header con título y línea decorativa -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-green-400 mb-4">Todos los Proyectos</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-gray-300 max-w-2xl mx-auto">Explora todos mis trabajos recientes. Cada tarjeta incluye una vista previa y acceso directo.</p>
+    </div>
 
-    <!-- Proyecto Principal (Valorant API) -->
-    <a href={projects[0].link} target="_blank" class="group relative p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center text-center overflow-hidden w-full h-[300px] md:h-[400px]">
-      <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:backdrop-blur-md group-hover:bg-opacity-80 transition-all duration-300"></div>
-      <img src={projects[0].image} alt={projects[0].title} class="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:blur-md" />
-      
-      <!-- Texto oculto hasta hover -->
-      <div class="relative z-10 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <h3 class="text-3xl font-bold text-green-400">{projects[0].title}</h3>
-        <p class="text-lg text-white mt-4">{projects[0].description}</p>
-      </div>
-    </a>
-
-    <!-- Proyectos secundarios (en grid, responsive) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-      {projects.slice(1).map(project => (
-        <a href={project.link} target="_blank" class="group relative p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 flex flex-col items-center text-center overflow-hidden w-full h-[250px] md:h-[350px]">
-          <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:backdrop-blur-md group-hover:bg-opacity-80 transition-all duration-300"></div>
-          <img src={project.image} alt={project.title} class="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:blur-md" />
-          
-          <!-- Texto oculto hasta hover -->
-          <div class="relative z-10 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <h3 class="text-2xl font-bold text-green-400">{project.title}</h3>
-            <p class="text-lg text-white mt-4">{project.description}</p>
+    <!-- Grid de todos los proyectos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <a href={project.link} class="group block" target="_blank">
+          <div class="relative overflow-hidden rounded-xl shadow-lg border border-gray-700/50 hover:border-green-400/50 transition-all duration-500 h-[300px] md:h-[350px]">
+            <div class="relative h-full overflow-hidden">
+              <img src={project.image} alt={project.title} class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <!-- Categoría -->
+              <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-3`}>
+                {project.category}
+              </div>
+              <!-- Título -->
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">{project.title}</h3>
+              <!-- Descripción -->
+              <p class="text-gray-300 mb-4 text-sm leading-relaxed">{project.description}</p>
+              <!-- Tecnologías -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.technologies?.slice(0, 3).map((tech) => (
+                  <span class="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">{tech}</span>
+                ))}
+              </div>
+              <!-- CTA -->
+              <div class="flex items-center space-x-2 text-green-400 font-semibold text-sm group-hover:text-white transition-colors duration-300">
+                <span>Ver Proyecto</span>
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+            </div>
           </div>
         </a>
       ))}

@@ -1,32 +1,148 @@
 ---
-const heroText = "Especializado en crear sitios modernos, rápidos y adaptables, combinando front-end y back-end para ofrecer experiencias digitales completas.";
+const heroText =
+  "Especializado en crear sitios modernos, rápidos y adaptables, combinando front-end y back-end para ofrecer experiencias digitales completas.";
 const buttonText = "Contactar";
 const secondaryButtonText = "Curriculum";
 ---
 
-<section class="relative w-screen h-screen flex flex-col md:flex-row items-center justify-between px-12 overflow-hidden">
-  
+<section
+  class="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-16 overflow-hidden"
+>
+  <!-- Fondos decorativos -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div
+      class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.06),_transparent_60%)]"
+    >
+    </div>
+  </div>
+
   <!-- Contenedor del texto -->
   <div class="flex-1 max-w-4xl text-left">
-    <p class="text-green-400 text-lg font-mono">Hola, mi nombre es</p>
-    <h1 class="text-6xl font-extrabold text-white mb-4">Adrián Cabrera Leonis</h1>
-    <h2 class="text-5xl font-semibold text-gray-400 mb-6">Soy Desarrollador Web</h2>
-    <p class="text-lg text-gray-300 max-w-lg leading-relaxed">{heroText}</p>
-    
+    <p class="text-green-400 text-base md:text-lg font-mono">
+      Hola, mi nombre es
+    </p>
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-3">
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
+        >Adrián Cabrera Leonis</span
+      >
+    </h1>
+    <h2
+      class="text-2xl md:text-4xl font-semibold text-gray-300 mb-6 flex items-center gap-3"
+    >
+      Soy Desarrollador Web
+      <span
+        class="inline-block w-14 h-[3px] bg-gradient-to-r from-green-400 to-blue-500 rounded-full"
+      ></span>
+    </h2>
+    <p class="text-base md:text-lg text-gray-300 max-w-xl leading-relaxed">
+      {heroText}
+    </p>
+
     <!-- Botones -->
-    <div class="mt-8 flex space-x-4">
-      <a href="/contact" class="border border-green-400 text-green-400 px-6 py-3 text-lg font-medium rounded-md transition hover:bg-green-400 hover:text-[#0a192f]">
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-blue-600 text-white px-6 py-3 text-base md:text-lg font-medium rounded-md shadow-lg shadow-green-500/10 hover:from-green-400 hover:to-blue-500 transition-transform duration-200 hover:scale-[1.02]"
+      >
         {buttonText}
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
       </a>
-      <a href="/CV.pdf" class="border border-blue-400 text-blue-400 px-6 py-3 text-lg font-medium rounded-md transition hover:bg-blue-400 hover:text-[#0a192f]" target="_blank">
+      <a
+        href="/CV.pdf"
+        class="inline-flex items-center gap-2 border border-blue-400 text-blue-400 px-6 py-3 text-base md:text-lg font-medium rounded-md transition hover:bg-blue-400 hover:text-[#0a192f]"
+        target="_blank"
+      >
         {secondaryButtonText}
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"></path>
+        </svg>
       </a>
     </div>
   </div>
 
-  <!-- Imagen a la derecha -->
-  <div class="flex-1 flex justify-end items-center">
-    <img src="img/developer.png" alt="Web Developer Illustration" class="w-full h-auto max-w-lg object-contain">
-  </div>
+  <!-- Ilustración abstracta a la derecha -->
+  <div class="flex-1 w-full mt-12 md:mt-0 flex justify-end items-center">
+    <div class="relative w-full max-w-lg aspect-square">
+      <!-- Blob degradado -->
+      <div
+        class="absolute inset-0 rounded-[40%] bg-gradient-to-tr from-green-500/25 via-blue-500/20 to-purple-500/20 blur-2xl"
+      >
+      </div>
+      <div class="absolute inset-0 rounded-[40%] ring-1 ring-white/10"></div>
 
+      <!-- Avatar con iniciales -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div
+          class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-[#0b1730] ring-1 ring-white/10 shadow-2xl overflow-hidden"
+        >
+          <div
+            class="absolute -inset-1 bg-gradient-to-br from-green-400/30 to-blue-500/30 blur-xl"
+          >
+          </div>
+          <div class="relative w-full h-full flex items-center justify-center">
+            <span
+              class="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
+              ><img src="/public/img/foto-perfil.png" alt="Foto de perfil"></span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta flotante -->
+      <div
+        class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-white/5 backdrop-blur-md border border-white/10 text-gray-200 rounded-xl px-4 py-3 shadow-lg"
+      >
+        <div class="text-xs uppercase tracking-wide text-gray-400">
+          Disponibilidad
+        </div>
+
+        <div class="mt-1 font-semibold">
+          <span
+            class="inline-block w-2 h-2 rounded-full mr-2 bg-green-400 animate-pulse"
+          ></span>Abierto a proyectos
+        </div>
+      </div>
+
+      <!-- Tarjeta flotante 2 -->
+      <div
+        class="absolute -top-4 -right-4 md:-top-6 md:-right-6 bg-white/5 backdrop-blur-md border border-white/10 text-gray-200 rounded-xl px-4 py-3 shadow-lg"
+      >
+        <div class="flex items-center gap-2">
+          <span
+            class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"
+          ></span>
+          <span class="text-sm">+1 años experiencia</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
