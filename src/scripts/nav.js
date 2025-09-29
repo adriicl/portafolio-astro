@@ -22,3 +22,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+// Scroll suave al dar clic en Projects cuando ya estás en el index
+document.addEventListener("DOMContentLoaded", () => {
+  const projectsLink = Array.from(document.querySelectorAll('nav a'))
+    .find(a => a.getAttribute('href') === '/#projects');
+  if (projectsLink) {
+    projectsLink.addEventListener('click', (e) => {
+      const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+      if (isHome) {
+        e.preventDefault();
+        const section = document.getElementById('projects');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && mobileMenu.classList.contains('translate-x-0')) {
+          mobileMenu.classList.remove('translate-x-0');
+          mobileMenu.classList.add('-translate-x-full');
+        }
+      }
+    });
+  }
+});

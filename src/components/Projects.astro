@@ -27,7 +27,7 @@ const projects = [
   }
 ];
 
-const getCategoryColor = (category) => {
+const getCategoryColor = (category: string) => {
   switch(category) {
     case "Frontend": return "bg-blue-500/20 text-blue-400 border-blue-400/30";
     case "UI/UX": return "bg-purple-500/20 text-purple-400 border-purple-400/30";
@@ -37,7 +37,7 @@ const getCategoryColor = (category) => {
 };
 ---
 
-<section class="w-full text-white py-20 px-6">
+<section id="projects" class="w-full text-white py-20 px-6 scroll-mt-24 md:scroll-mt-28">
   <div class="max-w-6xl mx-auto">
     
     <!-- Header con título y línea decorativa -->
@@ -172,16 +172,6 @@ const getCategoryColor = (category) => {
           </a>
         ))}
       </div>
-    </div>
-
-    <!-- Botón para ver más proyectos -->
-    <div class="text-center">
-      <a href="/projects" class="inline-flex items-center space-x-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-lg">
-        <span>Ver Todos los Proyectos</span>
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </a>
     </div>
 
   </div>

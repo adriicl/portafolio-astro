@@ -1,7 +1,7 @@
 ---
 const links = [
   { name: "Home", href: "/", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
-  { name: "Projects", href: "/projects", icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" },
+  { name: "Projects", href: "/#projects", icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" },
   { name: "Contact", href: "/contact", icon: "M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
 ];
 ---
@@ -12,8 +12,9 @@ const links = [
     <!-- Logo/Nombre con efectos mejorados -->
     <a href={links[0].href} class="group">
       <div class="relative">
-        <div class="text-2xl font-bold tracking-wide text-green-400 transition-all duration-300 group-hover:text-white group-hover:scale-105">
-          Adrian Cabrera Leonis
+        <div class="flex items-center gap-3 text-2xl font-bold tracking-wide text-green-400 transition-all duration-300 group-hover:text-white group-hover:scale-105">
+          <img src="/img/favicon.png" alt="Foto de perfil" class="h-8 w-8 md:h-10 md:w-10 rounded-full ring-1 ring-white/10 shadow" />
+          <span>Adrian Cabrera Leonis</span>
         </div>
         <!-- Línea decorativa que aparece en hover -->
         <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 group-hover:w-full"></div>

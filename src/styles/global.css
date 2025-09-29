@@ -47,3 +47,8 @@ body {
     background-attachment: fixed;
 }
 
+/* Desplazamiento suave para anclas */
+html {
+    scroll-behavior: smooth;
+}
+
