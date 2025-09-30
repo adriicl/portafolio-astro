@@ -1,13 +1,21 @@
 ---
 const projects = [
   { 
+    title: "TrueKapp", 
+    description: "Una plataforma web donde los usuarios pueden subir objetos que quieren intercambiar y buscar objetos de su interés. En lugar de usar dinero, los usuarios ofrecen sus propios objetos a cambio. Ademas de un sistema de mensajeria entre los usuarios.", 
+    link: "", 
+    image: "img/truekapp.png",
+    technologies: ["Laravel", "PHP", "MySQL", 'JavaScript','Tailwind CSS','Laravel Blade', 'API Rest'],
+    category: "Full-Stack",
+    featured: true
+  },
+  { 
     title: "API Valorant", 
     description: "Este sitio web es un proyecto interactivo de Valorant, construido usando JavaScript, HTML, Tailwind CSS y utilizando una API publica. Permite a los usuarios explorar agentes, sus habilidades, mapas de juego y diversos armas junto con sus skins.", 
     link: "https://adriicl.github.io/Valorant/", 
     image: "img/valorant.webp",
     technologies: ["JavaScript", "HTML", "Tailwind CSS"],
-    category: "Frontend",
-    featured: true
+    category: "Frontend"
   },
   { 
     title: "Marvel App", 
@@ -83,7 +91,7 @@ const getCategoryColor = (category: string) => {
               </h3>
               
               <!-- Descripción -->
-              <p class="text-base md:text-lg text-gray-300 mb-6 max-w-3xl leading-relaxed">
+              <p class="text-base md:text-lg text-gray-100 mb-6 max-w-3xl leading-relaxed">
                 {project.description}
               </p>
               
@@ -147,7 +155,7 @@ const getCategoryColor = (category: string) => {
                 </h3>
                 
                 <!-- Descripción -->
-                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                <p class="text-gray-100 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 
