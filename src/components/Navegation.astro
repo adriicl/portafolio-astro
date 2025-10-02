@@ -45,60 +45,27 @@ const links = [
       ))}
     </ul>
 
-    <!-- Botón hamburguesa mejorado para móviles -->
-    <button id="menu-toggle" class="md:hidden group relative p-2 rounded-lg hover:bg-green-400/10 transition-all duration-300 focus:outline-none">
-      <div class="w-6 h-6 flex flex-col justify-center items-center">
-        <span class="w-6 h-0.5 bg-green-400 rounded-full transition-all duration-300 group-hover:bg-white group-hover:rotate-45 group-hover:translate-y-1.5"></span>
-        <span class="w-6 h-0.5 bg-green-400 rounded-full transition-all duration-300 group-hover:opacity-0 mt-1"></span>
-        <span class="w-6 h-0.5 bg-green-400 rounded-full transition-all duration-300 group-hover:bg-white group-hover:-rotate-45 group-hover:-translate-y-1.5 mt-1"></span>
-      </div>
-    </button>
-  </div>
-
-  <!-- Menú desplegable en móviles mejorado -->
-  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] text-white flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-all duration-500 md:hidden backdrop-blur-xl">
-    
-    <!-- Logo en el menú móvil -->
-    <div class="absolute top-8 left-8">
-      <div class="text-xl font-bold text-green-400">ACL</div>
-    </div>
-    
-    <!-- Enlaces del menú móvil -->
-    <div class="space-y-6 text-center">
-      {links.map((link) => (
-        <a 
-          href={link.href} 
-          class="group flex flex-col items-center space-y-2 text-2xl font-semibold hover:text-green-400 transition-all duration-300 py-4 px-8 rounded-xl hover:bg-green-400/10"
-        >
-          <!-- Icono grande para móviles -->
-          <div class="w-16 h-16 bg-green-400/10 rounded-full flex items-center justify-center group-hover:bg-green-400/20 transition-all duration-300">
-            <svg class="w-8 h-8 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={link.icon}></path>
-            </svg>
-          </div>
-          <span>{link.name}</span>
-        </a>
-      ))}
-    </div>
-
-    <!-- Botón de cierre mejorado -->
-    <button id="close-menu" class="absolute top-8 right-8 w-12 h-12 bg-green-400/20 rounded-full flex items-center justify-center text-green-400 hover:bg-green-400 hover:text-white transition-all duration-300 group">
-      <svg class="w-6 h-6 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-
-    <!-- Información adicional en el menú móvil -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-      <p class="text-sm text-gray-400 mb-2">Desarrollador Web Full-Stack</p>
-      <div class="flex space-x-4 justify-center">
-        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
-        <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
-      </div>
-    </div>
+    <!-- Sin botón hamburguesa en móvil -->
   </div>
 </nav>
 
-<!-- Importando el JavaScript -->
-<script src="../scripts/nav.js"></script>
+<!-- Barra de navegación inferior para móviles -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50">
+  <div class="mx-auto w-full bg-[#0c0c0c]/95 backdrop-blur-xl border-t border-green-400/30 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.7)]">
+    <ul class="grid grid-cols-3 gap-0">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="flex flex-col items-center justify-center gap-1 py-3 text-sm font-medium text-gray-300 hover:text-green-400 transition-colors"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={link.icon}></path>
+            </svg>
+            <span>{link.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

@@ -3,7 +3,7 @@ const projects = [
   { 
     title: "TrueKapp", 
     description: "Una plataforma web donde los usuarios pueden subir objetos que quieren intercambiar y buscar objetos de su interés. En lugar de usar dinero, los usuarios ofrecen sus propios objetos a cambio. Ademas de un sistema de mensajeria entre los usuarios.", 
-    link: "", 
+    link: "https://youtu.be/2EwuiPOeQC8", 
     image: "img/truekapp.png",
     technologies: ["Laravel", "PHP", "MySQL", 'JavaScript','Tailwind CSS','Laravel Blade', 'API Rest'],
     category: "Full-Stack",
@@ -61,41 +61,65 @@ const getCategoryColor = (category: string) => {
           <h3 class="text-2xl font-bold text-white mb-2">Proyecto Destacado</h3>
           <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
         </div>
-        
-        <a href={project.link} class="group block" target="_blank">
+
+        <!-- Card móvil (layout vertical) -->
+        <a href={project.link} class="group block md:hidden" target="_blank">
+          <div class="overflow-hidden rounded-2xl shadow-2xl border border-gray-700/50 bg-[#0a0a0a]">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-5">
+              <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-3`}>
+                {project.category}
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">
+                {project.title}
+              </h3>
+              <p class="text-sm text-gray-200 mb-4 leading-relaxed">
+                {project.description}
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.technologies.slice(0, 4).map(tech => (
+                  <span class="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2 text-green-400 font-semibold">
+                  <span>Ver Proyecto</span>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card escritorio/tablet (layout con overlay) -->
+        <a href={project.link} class="group hidden md:block" target="_blank">
           <div class="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-700/50 hover:border-green-400/50 transition-all duration-500">
-            
-            <!-- Imagen de fondo -->
-            <div class="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
-              <img 
-                src={project.image} 
-                alt={project.title} 
+            <div class="relative h-[500px] lg:h-[600px] overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
               />
-              
-              <!-- Overlay con gradiente -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             </div>
-
-            <!-- Contenido del proyecto -->
-            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 transform translate-y-0 group-hover:translate-y-0 transition-transform duration-500">
-              
-              <!-- Categoría -->
+            <div class="absolute bottom-0 left-0 right-0 p-8">
               <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-4`}>
                 {project.category}
               </div>
-              
-              <!-- Título -->
-              <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
+              <h3 class="text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
                 {project.title}
               </h3>
-              
-              <!-- Descripción -->
-              <p class="text-base md:text-lg text-gray-100 mb-6 max-w-3xl leading-relaxed">
+              <p class="text-lg text-gray-100 mb-6 max-w-3xl leading-relaxed">
                 {project.description}
               </p>
-              
-              <!-- Tecnologías -->
               <div class="flex flex-wrap gap-2 mb-6">
                 {project.technologies.map(tech => (
                   <span class="px-3 py-1 bg-gray-800/50 text-gray-300 text-sm rounded-lg border border-gray-700/50">
@@ -103,8 +127,6 @@ const getCategoryColor = (category: string) => {
                   </span>
                 ))}
               </div>
-              
-              <!-- Botón de acción -->
               <div class="flex items-center space-x-2 text-green-400 font-semibold group-hover:text-white transition-colors duration-300">
                 <span>Ver Proyecto</span>
                 <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,58 +148,80 @@ const getCategoryColor = (category: string) => {
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.filter(p => !p.featured).map(project => (
-          <a href={project.link} class="group block" target="_blank">
-            <div class="relative overflow-hidden rounded-xl shadow-lg border border-gray-700/50 hover:border-green-400/50 transition-all duration-500 h-[300px] md:h-[350px]">
-              
-              <!-- Imagen de fondo -->
-              <div class="relative h-full overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+          <>
+            <!-- Card móvil (layout vertical) -->
+            <a href={project.link} class="group block md:hidden" target="_blank">
+              <div class="overflow-hidden rounded-xl shadow-lg border border-gray-700/50 bg-[#0a0a0a]">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-40 object-cover"
                 />
-                
-                <!-- Overlay con gradiente -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div class="p-5">
+                  <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-2`}>
+                    {project.category}
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p class="text-gray-200 mb-3 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-3">
+                    {project.technologies.slice(0, 3).map(tech => (
+                      <span class="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div class="flex items-center space-x-2 text-green-400 font-semibold text-sm">
+                    <span>Ver Proyecto</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </div>
+                </div>
               </div>
+            </a>
 
-              <!-- Contenido del proyecto -->
-              <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-0 group-hover:translate-y-0 transition-transform duration-500">
-                
-                <!-- Categoría -->
-                <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-3`}>
-                  {project.category}
+            <!-- Card escritorio/tablet (layout con overlay) -->
+            <a href={project.link} class="group hidden md:block" target="_blank">
+              <div class="relative overflow-hidden rounded-xl shadow-lg border border-gray-700/50 hover:border-green-400/50 transition-all duration-500 h-[350px]">
+                <div class="relative h-full overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 </div>
-                
-                <!-- Título -->
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                
-                <!-- Descripción -->
-                <p class="text-gray-100 mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <!-- Tecnologías -->
-                <div class="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.slice(0, 3).map(tech => (
-                    <span class="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <!-- Botón de acción -->
-                <div class="flex items-center space-x-2 text-green-400 font-semibold text-sm group-hover:text-white transition-colors duration-300">
-                  <span>Ver Proyecto</span>
-                  <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                  <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-3`}>
+                    {project.category}
+                  </div>
+                  <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p class="text-gray-100 mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.slice(0, 3).map(tech => (
+                      <span class="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div class="flex items-center space-x-2 text-green-400 font-semibold text-sm group-hover:text-white transition-colors duration-300">
+                    <span>Ver Proyecto</span>
+                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </>
         ))}
       </div>
     </div>
