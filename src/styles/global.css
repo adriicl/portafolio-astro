@@ -10,43 +10,6 @@
     animation: fade-in 1s ease-out;
 }
 
-/* Estilos base del body */
-body {
-    @apply bg-gray-900 text-white;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background-image: linear-gradient(
-        180deg,
-        transparent 24%,
-        rgba(0, 115, 19, 0.3) 25%,
-        rgba(0, 115, 19, 0.3) 26%,
-        transparent 27%,
-        transparent 74%,
-        rgba(0, 115, 19, 0.3) 75%,
-        rgba(0, 115, 19, 0.3) 76%,
-        transparent 77%,
-        transparent
-    ),
-    linear-gradient(
-        45deg,
-        transparent 24%,
-        rgba(0, 115, 19, 0.3) 35%,
-        rgba(0, 115, 19, 0.3) 36%,
-        transparent 37%,
-        transparent 74%,
-        rgba(0, 115, 19, 0.3) 75%,
-        rgba(0, 115, 19, 0.3) 76%,
-        transparent 77%,
-        transparent
-    );
-    background-size: 150px 150px;
-    background-repeat: repeat;
-    background-attachment: fixed;
-}
-
 /* Desplazamiento suave para anclas */
 html {
     scroll-behavior: smooth;

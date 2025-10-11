@@ -3,44 +3,52 @@ const skills = [
   {
     category: "Frontend",
     items: [
-      { name: "JavaScript", icon: "img/javascript.svg", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", level: 90 },
-      { name: "TypeScript", icon: "img/typescript.svg", url: "https://www.typescriptlang.org/", level: 75 },
-      { name: "Angular", icon: "img/angular.svg", url: "https://angular.io/", level: 70 },
-      { name: "Tailwind", icon: "img/Tailwind.svg", url: "https://tailwindcss.com/", level: 95 }
+      { name: "JavaScript", icon: "img/javascript.svg", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", level: "Experto", years: "1+" },
+      { name: "TypeScript", icon: "img/typescript.svg", url: "https://www.typescriptlang.org/", level: "Avanzado", years: "1+" },
+      { name: "Angular", icon: "img/angular.svg", url: "https://angular.io/", level: "Avanzado", years: "1+" },
+      { name: "Tailwind", icon: "img/Tailwind.svg", url: "https://tailwindcss.com/", level: "Experto", years: "1+" },
+      { name: "Astro", icon: "favicon.svg", url: "https://astro.build/", level: "Experto", years: "2+" }
     ]
   },
   {
     category: "Backend",
     items: [
-      { name: "PHP", icon: "img/php.svg", url: "https://www.php.net/", level: 85 },
-      { name: "Laravel", icon: "img/laravel.svg", url: "https://laravel.com/", level: 88 }
+      { name: "PHP", icon: "img/php.svg", url: "https://www.php.net/", level: "Experto", years: "1+" },
+      { name: "Laravel", icon: "img/laravel.svg", url: "https://laravel.com/", level: "Experto", years: "1+" },
+      { name: "Java", icon: "img/java.png", url: "https://www.java.com/", level: "Avanzado", years: "1+" }
     ]
   },
   {
     category: "Herramientas",
     items: [
-      { name: "Figma", icon: "img/figma.svg", url: "https://www.figma.com/", level: 80 },
-      { name: "Astro", icon: "favicon.svg", url: "https://astro.build/", level: 92 }
+      { name: "Figma", icon: "img/figma.svg", url: "https://www.figma.com/", level: "Avanzado", years: "1+" },
+      { name: "Git", icon: "img/git.png", url: "https://git-scm.com/", level: "Avanzado", years: "1+" },
+      { name: "Docker", icon: "img/docker.png", url: "https://www.docker.com/", level: "Avanzado", years: "1+" }
     ]
   }
 ];
 
-const getBarColor = (level: number) => {
-  if (level >= 85) return "from-green-400 to-emerald-500";
-  if (level >= 70) return "from-blue-400 to-cyan-500";
+const getLevelColor = (level: string) => {
+  if (level === "Experto") return "from-green-400 to-emerald-500";
+  if (level === "Avanzado") return "from-blue-400 to-cyan-500";
   return "from-purple-400 to-pink-500";
 };
 
-const getGlowColor = (level: number) => {
-  if (level >= 85) return "shadow-green-400/50";
-  if (level >= 70) return "shadow-blue-400/50";
-  return "shadow-purple-400/50";
+const getLevelBadgeColor = (level: string) => {
+  if (level === "Experto") return "bg-green-400/20 text-green-400 border-green-400/30";
+  if (level === "Avanzado") return "bg-blue-400/20 text-blue-400 border-blue-400/30";
+  return "bg-purple-400/20 text-purple-400 border-purple-400/30";
 };
 ---
 
 <section class="relative w-full text-white py-32 px-6 overflow-hidden" id="skills">
   <!-- Fondo -->
   <div class="absolute inset-0 bg-gradient-to-br from-[#112240] via-[#0a192f] to-[#112240]"></div>
+  
+  <!-- Sombras decorativas para diferenciar la sección -->
+  <div class="absolute inset-0 shadow-2xl shadow-blue-400/5"></div>
+  <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-blue-400/10 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-400/10 to-transparent"></div>
   
   <!-- Elementos decorativos -->
   <div class="absolute top-40 left-20 w-64 h-64 bg-green-400/5 rounded-full blur-3xl animate-pulse"></div>
@@ -72,8 +80,8 @@ const getGlowColor = (level: number) => {
             <div class="flex-1 h-px bg-gradient-to-r from-white/20 to-transparent"></div>
           </div>
 
-          <!-- Grid de habilidades -->
-          <div class="grid md:grid-cols-2 gap-6">
+           <!-- Grid de habilidades -->
+           <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
             {category.items.map(skill => (
               <a 
                 href={skill.url} 
@@ -84,55 +92,55 @@ const getGlowColor = (level: number) => {
                 <div class="relative p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-green-400/30 transition-all duration-300 hover:transform hover:translate-y-[-4px]">
                   
                   <!-- Header del skill -->
-                  <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center space-x-4">
-                      <!-- Icono -->
-                      <div class="w-14 h-14 bg-gradient-to-br from-white/10 to-white/5 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <img src={skill.icon} alt={skill.name} class="w-8 h-8" />
-                      </div>
-                      <!-- Nombre -->
-                      <div>
-                        <h4 class="text-white text-xl font-semibold group-hover:text-green-400 transition-colors duration-300">
-                          {skill.name}
-                        </h4>
-                        <p class="text-gray-500 text-sm">Ver documentación →</p>
-                      </div>
+                  <div class="flex items-center space-x-4 mb-4">
+                    <!-- Icono -->
+                    <div class="w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 relative">
+                      <img src={skill.icon} alt={skill.name} class="w-10 h-10" />
+                      <div class={`absolute -inset-0.5 bg-gradient-to-r ${getLevelColor(skill.level)} rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300`}></div>
                     </div>
                     
-                    <!-- Porcentaje -->
-                    <div class="text-right">
-                      <div class={`text-3xl font-bold bg-gradient-to-r ${getBarColor(skill.level)} bg-clip-text text-transparent`}>
-                        {skill.level}%
-                      </div>
+                    <!-- Nombre y link -->
+                    <div class="flex-1">
+                      <h4 class="text-white text-xl font-semibold group-hover:text-green-400 transition-colors duration-300 mb-1">
+                        {skill.name}
+                      </h4>
+                      <p class="text-gray-500 text-sm flex items-center">
+                        Ver documentación 
+                        <svg class="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                      </p>
                     </div>
                   </div>
 
-                  <!-- Barra de progreso -->
-                  <div class="relative h-3 bg-white/5 rounded-full overflow-hidden">
-                    <!-- Barra de fondo con animación -->
-                    <div 
-                      class={`absolute inset-y-0 left-0 bg-gradient-to-r ${getBarColor(skill.level)} rounded-full transition-all duration-1000 ease-out ${getGlowColor(skill.level)} group-hover:shadow-lg`}
-                      style={`width: ${skill.level}%;`}
-                    >
-                      <!-- Efecto de brillo animado -->
-                      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
+                  <!-- Badges de nivel y experiencia -->
+                  <div class="flex items-center gap-3">
+                    <!-- Badge de nivel -->
+                    <div class={`px-3 py-1.5 rounded-lg border backdrop-blur-sm ${getLevelBadgeColor(skill.level)} font-semibold text-sm flex items-center gap-1.5`}>
+                      <div class={`w-2 h-2 rounded-full bg-gradient-to-r ${getLevelColor(skill.level)} animate-pulse-slow`}></div>
+                      {skill.level}
                     </div>
                     
-                    <!-- Puntos de referencia -->
-                    <div class="absolute inset-0 flex justify-between px-0.5">
-                      <div class="w-px h-full bg-white/10"></div>
-                      <div class="w-px h-full bg-white/10"></div>
-                      <div class="w-px h-full bg-white/10"></div>
-                      <div class="w-px h-full bg-white/10"></div>
+                    <!-- Badge de años -->
+                    <div class="px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm text-gray-300 text-sm font-medium flex items-center gap-1.5">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      {skill.years} años
                     </div>
                   </div>
 
-                  <!-- Indicador de nivel -->
-                  <div class="mt-3 flex items-center justify-between text-xs">
-                    <span class="text-gray-500">Nivel de dominio</span>
-                    <span class={`font-semibold ${skill.level >= 85 ? 'text-green-400' : skill.level >= 70 ? 'text-blue-400' : 'text-purple-400'}`}>
-                      {skill.level >= 85 ? 'Experto' : skill.level >= 70 ? 'Avanzado' : 'Intermedio'}
-                    </span>
+                  <!-- Indicadores visuales decorativos -->
+                  <div class="mt-4 flex gap-1">
+                    {[...Array(skill.level === "Experto" ? 5 : skill.level === "Avanzado" ? 4 : 3)].map((_, i) => (
+                      <div 
+                        class={`h-1 flex-1 rounded-full bg-gradient-to-r ${getLevelColor(skill.level)} opacity-70`}
+                        style={`animation-delay: ${i * 0.1}s`}
+                      ></div>
+                    ))}
+                    {[...Array(skill.level === "Experto" ? 0 : skill.level === "Avanzado" ? 1 : 2)].map(() => (
+                      <div class="h-1 flex-1 rounded-full bg-white/10"></div>
+                    ))}
                   </div>
 
                   <!-- Efecto hover -->
@@ -173,12 +181,12 @@ const getGlowColor = (level: number) => {
     }
   }
   
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
     }
-    100% {
-      transform: translateX(100%);
+    50% {
+      opacity: 0.5;
     }
   }
   
@@ -186,7 +194,7 @@ const getGlowColor = (level: number) => {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  .animate-shimmer {
-    animation: shimmer 3s infinite;
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
   }
 </style>
