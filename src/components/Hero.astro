@@ -16,16 +16,48 @@ const technologies = [
 
 <section class="relative w-full min-h-screen flex items-center md:mt-5 justify-center px-4 md:px-8 xl:px-16 2xl:px-24 py-20 overflow-hidden">
   
-  <!-- Fondo animado -->
+  <!-- Fondo base con gradiente animado -->
   <div class="absolute inset-0 bg-gradient-to-br from-[#0a192f] via-[#112240] to-[#0a192f]"></div>
   
-  <!-- Elementos decorativos -->
-  <div class="absolute top-20 left-20 w-96 h-96 bg-green-400/10 rounded-full blur-3xl animate-pulse"></div>
-  <div class="absolute bottom-20 right-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+  <!-- Capa de gradiente animado -->
+  <div class="absolute inset-0 opacity-50">
+    <div class="absolute inset-0 bg-gradient-to-tr from-green-500/10 via-transparent to-blue-500/10 animate-gradient"></div>
+  </div>
 
-  <!-- Grid decorativo de fondo -->
-  <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+  <!-- Partículas flotantes grandes -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+    <div class="absolute top-20 left-[10%] w-96 h-96 bg-green-400/10 rounded-full blur-3xl animate-float-slow"></div>
+    <div class="absolute top-40 right-[15%] w-80 h-80 bg-blue-500/15 rounded-full blur-3xl animate-float-medium" style="animation-delay: 1s;"></div>
+    <div class="absolute bottom-32 left-[20%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl animate-float-slow" style="animation-delay: 2s;"></div>
+    <div class="absolute top-1/3 right-[5%] w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl animate-float-medium" style="animation-delay: 3s;"></div>
+  </div>
+
+  <!-- Partículas pequeñas -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-[15%] left-[25%] w-2 h-2 bg-green-400/40 rounded-full animate-twinkle"></div>
+    <div class="absolute top-[35%] left-[15%] w-1.5 h-1.5 bg-blue-400/40 rounded-full animate-twinkle" style="animation-delay: 1s;"></div>
+    <div class="absolute top-[60%] left-[35%] w-2 h-2 bg-purple-400/40 rounded-full animate-twinkle" style="animation-delay: 2s;"></div>
+    <div class="absolute top-[25%] right-[30%] w-1.5 h-1.5 bg-cyan-400/40 rounded-full animate-twinkle" style="animation-delay: 0.5s;"></div>
+    <div class="absolute top-[70%] right-[20%] w-2 h-2 bg-green-400/40 rounded-full animate-twinkle" style="animation-delay: 1.5s;"></div>
+    <div class="absolute top-[45%] right-[40%] w-1.5 h-1.5 bg-blue-400/40 rounded-full animate-twinkle" style="animation-delay: 2.5s;"></div>
+    <div class="absolute bottom-[20%] left-[45%] w-2 h-2 bg-purple-400/40 rounded-full animate-twinkle" style="animation-delay: 3s;"></div>
+    <div class="absolute bottom-[40%] right-[15%] w-1.5 h-1.5 bg-cyan-400/40 rounded-full animate-twinkle" style="animation-delay: 3.5s;"></div>
+  </div>
+
+  <!-- Grid decorativo de fondo con efecto parallax -->
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:50px_50px] animate-grid-move"></div>
+  
+  <!-- Líneas diagonales decorativas -->
+  <div class="absolute inset-0 overflow-hidden opacity-20">
+    <div class="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400/50 to-transparent animate-slide-right"></div>
+    <div class="absolute top-1/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent animate-slide-left" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-1/3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-purple-400/50 to-transparent animate-slide-right" style="animation-delay: 4s;"></div>
+  </div>
+
+  <!-- Efecto de aurora boreal -->
+  <div class="absolute inset-0 overflow-hidden opacity-30">
+    <div class="absolute -top-1/2 left-0 w-full h-full bg-gradient-to-b from-green-400/20 via-blue-500/10 to-transparent blur-3xl animate-aurora"></div>
+  </div>
 
   <!-- Contenido principal -->
   <div class="relative w-full max-w-[1800px] grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center mx-auto">

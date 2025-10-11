@@ -1,0 +1,222 @@
+---
+const experiences = [
+  {
+    company: "InfoExpo",
+    role: "Desarrollador FullStack",
+    location: "Orihuela, Alicante",
+    period: "Febrero 2025 – Julio 2025",
+    description: "Desarrollo de soluciones empresariales y sistemas de gestión",
+    achievements: [
+      "Diseñé y desarrollé plantillas personalizadas con Laravel Blade, asegurando una estructura clara y reutilizable",
+      "Implementé nuevas funcionalidades en la web corporativa, mejorando la experiencia de usuario",
+      "Desarrollé un sistema de gestión de incidencias en FacturaScripts (ERP en PHP) adaptado a las necesidades de la empresa",
+      "Desarrollé un sistema de autenticación con OAuth2 en Laravel que centralizó el acceso a varias aplicaciones, reduciendo la redundancia de cuentas y aumentando la eficiencia del inicio de sesión en un 40%"
+    ],
+    technologies: ["Laravel", "PHP", "OAuth2", "FacturaScripts", "Blade"],
+    color: "green"
+  },
+  {
+    company: "TrueKapp",
+    role: "Desarrollador FullStack",
+    location: "Orihuela, Alicante",
+    period: "Enero 2025 – Julio 2025",
+    description: "Plataforma de trueques con arquitectura MVC",
+    achievements: [
+      "Desarrollo colaborativo de una plataforma web en Laravel con arquitectura MVC y control de versiones en Git/GitHub",
+      "Implementación de un sistema de trueques entre usuarios, incluyendo gestión de ofertas, aceptación y seguimiento de intercambios",
+      "Sistema de mensajería interna entre usuarios con control de permisos y almacenamiento seguro",
+      "Diseño de una interfaz moderna y responsive con Tailwind CSS",
+      "Uso de controladores, seeders, y factories para pruebas y generación de datos realistas"
+    ],
+    technologies: ["Laravel", "MVC", "Git", "Tailwind CSS", "MySQL"],
+    color: "blue"
+  },
+  {
+    company: "Cámara de Comercio",
+    role: "Técnico Informático",
+    location: "Orihuela, Alicante",
+    period: "Octubre 2022 – Enero 2023",
+    description: "Soporte técnico y mantenimiento de aplicaciones",
+    achievements: [
+      "Brindé soporte técnico en hardware y software a clientes y personal interno",
+      "Gestioné y mantuve una aplicación para clientes, garantizando un funcionamiento fluido y mejorando la satisfacción del usuario"
+    ],
+    technologies: ["Soporte Técnico", "Hardware", "Software"],
+    color: "purple"
+  }
+];
+
+const getColorClasses = (color: string) => {
+  const colors = {
+    green: {
+      border: "border-green-400/30",
+      bg: "from-green-400/20 to-green-600/20",
+      text: "text-green-400",
+      glow: "shadow-green-400/20",
+      dot: "bg-green-400"
+    },
+    blue: {
+      border: "border-blue-400/30",
+      bg: "from-blue-400/20 to-blue-600/20",
+      text: "text-blue-400",
+      glow: "shadow-blue-400/20",
+      dot: "bg-blue-400"
+    },
+    purple: {
+      border: "border-purple-400/30",
+      bg: "from-purple-400/20 to-purple-600/20",
+      text: "text-purple-400",
+      glow: "shadow-purple-400/20",
+      dot: "bg-purple-400"
+    }
+  };
+  return colors[color as keyof typeof colors] || colors.green;
+};
+---
+
+<section class="relative w-full text-white py-32 px-6 overflow-hidden" id="experience">
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0a192f] via-[#112240] to-[#0a192f]"></div>
+  
+  <!-- Elementos decorativos -->
+  <div class="absolute top-40 right-20 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-20 left-20 w-96 h-96 bg-green-400/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+
+  <div class="relative max-w-7xl mx-auto">
+    
+    <!-- Header -->
+    <div class="mb-20">
+      <div class="inline-flex items-center space-x-3 mb-4">
+        <span class="text-green-400 font-mono text-sm">02.</span>
+        <h2 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Experiencia</h2>
+      </div>
+      <div class="w-32 h-0.5 bg-gradient-to-r from-green-400 to-transparent"></div>
+      <p class="mt-6 text-gray-400 text-lg max-w-2xl">Mi trayectoria profesional construyendo soluciones digitales impactantes.</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Línea vertical -->
+      <div class="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-400 via-blue-400 to-purple-400"></div>
+
+      <!-- Experiencias -->
+      <div class="space-y-12 md:space-y-16">
+        {experiences.map((exp, idx) => {
+          const colors = getColorClasses(exp.color);
+          return (
+            <div class="relative md:pl-20">
+              <!-- Punto en la línea de tiempo -->
+              <div class={`hidden md:flex absolute left-6 top-8 w-5 h-5 ${colors.dot} rounded-full border-4 border-[#0a192f] z-10`}>
+                <div class={`absolute inset-0 ${colors.dot} rounded-full animate-ping-slow opacity-75`}></div>
+              </div>
+
+              <!-- Tarjeta de experiencia -->
+              <div class={`group relative bg-white/5 backdrop-blur-sm border ${colors.border} rounded-2xl p-6 md:p-8 transition-all duration-300 hover:transform hover:translate-y-[-4px] hover:${colors.glow} hover:shadow-2xl`}>
+                
+                <!-- Header de la tarjeta -->
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                  <div class="flex-1">
+                    <!-- Empresa y rol -->
+                    <div class="flex items-start gap-3 mb-2">
+                      <div class={`w-12 h-12 bg-gradient-to-br ${colors.bg} backdrop-blur-sm border ${colors.border} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                        <svg class={`w-6 h-6 ${colors.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class={`text-2xl font-bold ${colors.text} mb-1`}>{exp.company}</h3>
+                        <p class="text-xl text-white font-semibold">{exp.role}</p>
+                      </div>
+                    </div>
+
+                    <!-- Ubicación y período -->
+                    <div class="flex flex-wrap gap-4 mt-4">
+                      <div class="flex items-center gap-2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="text-sm">{exp.location}</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-gray-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="text-sm">{exp.period}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Badge de tecnologías principales -->
+                  <div class={`px-4 py-2 bg-gradient-to-br ${colors.bg} backdrop-blur-sm border ${colors.border} rounded-xl`}>
+                    <p class={`text-xs ${colors.text} font-semibold uppercase tracking-wider`}>
+                      {exp.technologies[0]}
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-gray-300 mb-6 italic">{exp.description}</p>
+
+                <!-- Logros -->
+                <div class="space-y-3 mb-6">
+                  {exp.achievements.map((achievement) => (
+                    <div class="flex gap-3">
+                      <div class={`w-1.5 h-1.5 ${colors.dot} rounded-full mt-2 flex-shrink-0`}></div>
+                      <p class="text-gray-300 text-sm leading-relaxed">{achievement}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Tecnologías -->
+                <div class="flex flex-wrap gap-2">
+                  {exp.technologies.map((tech) => (
+                    <span class={`px-3 py-1 text-xs font-medium ${colors.text} bg-white/5 border ${colors.border} rounded-lg`}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <!-- Efecto hover -->
+                <div class={`absolute inset-0 bg-gradient-to-r from-transparent via-${exp.color}-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none`}></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes ping-slow {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-ping-slow {
+    animation: ping-slow 2s ease-out infinite;
+  }
+</style>
