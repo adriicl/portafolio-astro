@@ -2,195 +2,290 @@
 const formAction = "#"; // Cambia esto a tu backend o servicio de formulario
 ---
 
-<section id="contact" class="relative w-full py-20 px-6 text-white overflow-hidden scroll-mt-24 md:scroll-mt-28">
-  <div class="max-w-6xl mx-auto">
+<section id="contact" class="relative w-full py-32 px-6 text-white overflow-hidden scroll-mt-24">
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#112240] via-[#0a192f] to-[#112240]"></div>
+  
+  <!-- Elementos decorativos -->
+  <div class="absolute top-20 left-20 w-96 h-96 bg-green-400/5 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-40 right-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+
+  <div class="relative max-w-7xl mx-auto">
     
-    <!-- Header con título y línea decorativa -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-green-400 mb-4">Contacto</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full mb-6"></div>
-      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-        ¿Tienes un proyecto, una idea o una consulta? Escríbeme y te responderé lo antes posible.
+    <!-- Header -->
+    <div class="mb-20">
+      <div class="inline-flex items-center space-x-3 mb-4">
+        <span class="text-green-400 font-mono text-sm">04.</span>
+        <h2 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Hablemos</h2>
+      </div>
+      <div class="w-32 h-0.5 bg-gradient-to-r from-green-400 to-transparent mb-6"></div>
+      <p class="text-gray-400 text-lg max-w-2xl">
+        ¿Tienes un proyecto en mente? Estoy disponible para nuevas oportunidades. Trabajemos juntos para crear algo increíble.
       </p>
     </div>
 
     <!-- Contenido principal -->
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
+    <div class="grid lg:grid-cols-5 gap-12 items-start">
       
-      <!-- Información de contacto -->
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-2xl font-bold text-white mb-6">Hablemos de tu proyecto</h3>
-          <p class="text-lg text-gray-300 leading-relaxed mb-8">
-            Estoy siempre abierto a discutir nuevos proyectos, ideas creativas o oportunidades para ser parte de tus visiones.
-          </p>
-        </div>
-
-        <!-- Tarjetas de información -->
-        <div class="space-y-6">
-          <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-green-400/10 to-transparent rounded-lg border-l-4 border-green-400">
-            <div class="w-10 h-10 bg-green-400/20 rounded-full flex items-center justify-center">
-              <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
+      <!-- Información de contacto - 2/5 -->
+      <div class="lg:col-span-2 space-y-8">
+        
+        <!-- Cards de info rápida -->
+        <div class="space-y-4">
+          <a href="mailto:adriancabreraleonis172003@gmail.com" class="group block">
+            <div class="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-green-400/30 transition-all duration-300 hover:transform hover:translate-x-2">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h4 class="font-semibold text-white mb-1">Email</h4>
+                  <p class="text-sm text-gray-400 truncate group-hover:text-green-400 transition-colors duration-300">adriancabreraleonis172003@gmail.com</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h4 class="font-semibold text-white">Email</h4>
-              <p class="text-sm text-gray-400">adriancabreraleonis172003@gmail.com</p>
-            </div>
-          </div>
-
-          <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-blue-500/10 to-transparent rounded-lg border-l-4 border-blue-400">
-            <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
-              <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-white">Tiempo de respuesta</h4>
-              <p class="text-sm text-gray-400">Menos de 24 horas</p>
-            </div>
-          </div>
-
-          <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg border-l-4 border-purple-400">
-            <div class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-white">Ubicación</h4>
-              <p class="text-sm text-gray-400">Orihuela/Alicante, Remoto</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA adicional -->
-        <div class="pt-6">
-          <a href="/CV.pdf" target="_blank" class="inline-flex items-center space-x-2 border border-green-400 text-green-400 hover:bg-green-400 hover:text-[#0a192f] px-6 py-3 font-medium rounded-lg transition-all duration-300">
-            <span>Descargar CV</span>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"></path>
-            </svg>
           </a>
+
+          <div class="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Ubicación</h4>
+                <p class="text-sm text-gray-400">Orihuela/Alicante, España</p>
+                <p class="text-xs text-green-400 mt-1">🌍 Trabajo remoto disponible</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-400/20 to-purple-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Tiempo de respuesta</h4>
+                <p class="text-sm text-gray-400">Menos de 24 horas</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Redes sociales -->
+        <div class="p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+          <h4 class="text-white font-semibold mb-4">Sígueme en</h4>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://github.com/adriicl" target="_blank" class="w-12 h-12 bg-white/5 hover:bg-green-400/20 border border-white/10 hover:border-green-400/30 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+              <svg class="w-5 h-5 text-gray-400 hover:text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/adrián-cabrera-leonis-868153298" target="_blank" class="w-12 h-12 bg-white/5 hover:bg-blue-400/20 border border-white/10 hover:border-blue-400/30 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+              <svg class="w-5 h-5 text-gray-400 hover:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="mailto:adriancabreraleonis172003@gmail.com" target="_blank" class="w-12 h-12 bg-white/5 hover:bg-purple-400/20 border border-white/10 hover:border-purple-400/30 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Descarga CV -->
+        <a href="/CVh.docx.pdf" target="_blank" class="group block">
+          <div class="p-6 bg-gradient-to-r from-green-400/10 to-blue-500/10 backdrop-blur-sm rounded-2xl border border-green-400/20 hover:border-green-400/40 transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-white font-semibold mb-1">Descarga mi CV</h4>
+                <p class="text-sm text-gray-400">Formato PDF • 245 KB</p>
+              </div>
+              <div class="w-12 h-12 bg-green-400/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
 
-      <!-- Formulario -->
-      <div class="relative">
-
-        <!-- Fondos decorativos -->
-        <div class="pointer-events-none absolute inset-0 -z-10">
-          <div class="absolute -top-24 -left-24 w-[420px] h-[420px] bg-green-500/10 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-24 -right-24 w-[420px] h-[420px] bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.05),_transparent_60%)]"></div>
-        </div>
-
-        <!-- Tarjeta del formulario -->
-        <form action={formAction} method="POST" class="w-full relative">
-          <div class="absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-green-500/20 to-blue-500/20 blur opacity-70"></div>
-          <div class="relative rounded-2xl bg-[#0b1730]/80 backdrop-blur-md border border-gray-700/50 p-8 shadow-2xl">
+      <!-- Formulario - 3/5 -->
+      <div class="lg:col-span-3">
+        <form action={formAction} method="POST" class="space-y-6">
+          <div class="p-8 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-3xl border border-white/10">
             
-            <!-- Nombre y apellidos -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label for="name" class="block text-sm font-medium text-green-400 mb-2">Nombre</label>
+            <!-- Grid de inputs -->
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <!-- Nombre -->
+              <div class="group">
+                <label for="name" class="block text-sm font-medium text-gray-400 mb-2 group-focus-within:text-green-400 transition-colors duration-300">
+                  Nombre <span class="text-red-400">*</span>
+                </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
-                  aria-required="true"
                   placeholder="Tu nombre"
-                  class="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all duration-300"
+                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400/50 transition-all duration-300"
                 />
               </div>
-              <div>
-                <label for="surname" class="block text-sm font-medium text-green-400 mb-2">Apellidos</label>
+
+              <!-- Apellidos -->
+              <div class="group">
+                <label for="surname" class="block text-sm font-medium text-gray-400 mb-2 group-focus-within:text-green-400 transition-colors duration-300">
+                  Apellidos <span class="text-red-400">*</span>
+                </label>
                 <input
                   type="text"
                   id="surname"
                   name="surname"
                   required
-                  aria-required="true"
                   placeholder="Tus apellidos"
-                  class="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all duration-300"
+                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400/50 transition-all duration-300"
                 />
               </div>
-            </div>
 
-            <!-- Email y teléfono -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
-              <div>
-                <label for="email" class="block text-sm font-medium text-green-400 mb-2">Email</label>
+              <!-- Email -->
+              <div class="group">
+                <label for="email" class="block text-sm font-medium text-gray-400 mb-2 group-focus-within:text-green-400 transition-colors duration-300">
+                  Email <span class="text-red-400">*</span>
+                </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
-                  aria-required="true"
                   placeholder="tu@email.com"
-                  class="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all duration-300"
+                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400/50 transition-all duration-300"
                 />
               </div>
-              <div>
-                <label for="phone" class="block text-sm font-medium text-green-400 mb-2">Teléfono</label>
+
+              <!-- Teléfono -->
+              <div class="group">
+                <label for="phone" class="block text-sm font-medium text-gray-400 mb-2 group-focus-within:text-green-400 transition-colors duration-300">
+                  Teléfono
+                </label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
-                  placeholder="Opcional"
-                  class="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all duration-300"
+                  placeholder="+34 600 000 000"
+                  class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400/50 transition-all duration-300"
                 />
               </div>
             </div>
 
             <!-- Empresa -->
-            <div class="mt-5">
-              <label for="company" class="block text-sm font-medium text-green-400 mb-2">Empresa</label>
+            <div class="group mb-6">
+              <label for="company" class="block text-sm font-medium text-gray-400 mb-2 group-focus-within:text-green-400 transition-colors duration-300">
+                Empresa / Organización
+              </label>
               <input
                 type="text"
                 id="company"
                 name="company"
-                placeholder="Opcional"
-                class="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all duration-300"
+                placeholder="Nombre de tu empresa"
+                class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400/50 transition-all duration-300"
               />
             </div>
 
+            <!-- Tipo de proyecto -->
+            <div class="group mb-6">
+              <label for="project-type" class="block text-sm font-medium text-gray-400 mb-2 group-focus-within:text-green-400 transition-colors duration-300">
+                ¿Qué tipo de proyecto tienes en mente?
+              </label>
+              <select
+                id="project-type"
+                name="project-type"
+                class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400/50 transition-all duration-300"
+              >
+                <option value="" class="bg-[#0a192f]">Selecciona una opción</option>
+                <option value="web" class="bg-[#0a192f]">Desarrollo Web</option>
+                <option value="app" class="bg-[#0a192f]">Aplicación</option>
+                <option value="ecommerce" class="bg-[#0a192f]">E-commerce</option>
+                <option value="design" class="bg-[#0a192f]">Diseño UI/UX</option>
+                <option value="consulting" class="bg-[#0a192f]">Consultoría</option>
+                <option value="other" class="bg-[#0a192f]">Otro</option>
+              </select>
+            </div>
+
             <!-- Mensaje -->
-            <div class="mt-5">
+            <div class="group mb-6">
               <div class="flex items-center justify-between mb-2">
-                <label for="message" class="block text-sm font-medium text-green-400">Mensaje</label>
-                <span class="text-xs text-gray-400">Máx. 1000 caracteres</span>
+                <label for="message" class="block text-sm font-medium text-gray-400 group-focus-within:text-green-400 transition-colors duration-300">
+                  Mensaje <span class="text-red-400">*</span>
+                </label>
+                <span class="text-xs text-gray-500">Máx. 1000 caracteres</span>
               </div>
               <textarea
                 id="message"
                 name="message"
-                rows="5"
+                rows="6"
                 required
-                aria-required="true"
-                placeholder="Cuéntame sobre tu proyecto, objetivos y plazos..."
-                class="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all duration-300 resize-none"
+                maxlength="1000"
+                placeholder="Cuéntame sobre tu proyecto: objetivos, plazos, presupuesto estimado..."
+                class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400/50 focus:border-green-400/50 transition-all duration-300 resize-none"
               ></textarea>
             </div>
 
             <!-- Footer del formulario -->
-            <div class="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-white/10">
+              <p class="text-xs text-gray-500">Los campos marcados con <span class="text-red-400">*</span> son obligatorios</p>
               
               <button
                 type="submit"
-                class="inline-flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-[#0a192f] font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-green-500/25"
+                class="group inline-flex items-center space-x-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-green-400/20 hover:shadow-green-400/40 hover:scale-105"
               >
-                Enviar mensaje
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                <span>Enviar mensaje</span>
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
               </button>
             </div>
           </div>
         </form>
+
+        <!-- Mensaje informativo -->
+        <div class="mt-6 p-4 bg-blue-400/10 backdrop-blur-sm rounded-xl border border-blue-400/20">
+          <div class="flex items-start space-x-3">
+            <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <p class="text-sm text-gray-400">
+              Responderé a tu mensaje lo antes posible, normalmente en menos de 24 horas. Si prefieres un contacto más directo, no dudes en escribirme por email.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
+
+<style>
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>

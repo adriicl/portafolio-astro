@@ -7,7 +7,8 @@ const projects = [
     image: "img/truekapp.png",
     technologies: ["Laravel", "PHP", "MySQL", 'JavaScript','Tailwind CSS','Laravel Blade', 'API Rest'],
     category: "Full-Stack",
-    featured: true
+    featured: true,
+    year: "2024"
   },
   { 
     title: "API Valorant", 
@@ -15,7 +16,8 @@ const projects = [
     link: "https://adriicl.github.io/Valorant/", 
     image: "img/valorant.webp",
     technologies: ["JavaScript", "HTML", "Tailwind CSS"],
-    category: "Frontend"
+    category: "Frontend",
+    year: "2024"
   },
   { 
     title: "Marvel App", 
@@ -23,7 +25,8 @@ const projects = [
     link: "/projects/project-two", 
     image: "img/marvel.jpg",
     technologies: ["Tailwind CSS", "Framer Motion", "React"],
-    category: "UI/UX"
+    category: "UI/UX",
+    year: "2023"
   },
   { 
     title: "E-commerce Platform", 
@@ -31,200 +34,242 @@ const projects = [
     link: "/projects/project-three", 
     image: "img/futbol.webp",
     technologies: ["Laravel", "Vue.js", "PHP", "MySQL"],
-    category: "Full-Stack"
+    category: "Full-Stack",
+    year: "2023"
   }
 ];
 
 const getCategoryColor = (category: string) => {
   switch(category) {
-    case "Frontend": return "bg-blue-500/20 text-blue-400 border-blue-400/30";
-    case "UI/UX": return "bg-purple-500/20 text-purple-400 border-purple-400/30";
-    case "Full-Stack": return "bg-green-500/20 text-green-400 border-green-400/30";
-    default: return "bg-gray-500/20 text-gray-400 border-gray-400/30";
+    case "Frontend": return "from-blue-400 to-cyan-500";
+    case "UI/UX": return "from-purple-400 to-pink-500";
+    case "Full-Stack": return "from-green-400 to-emerald-500";
+    default: return "from-gray-400 to-gray-500";
+  }
+};
+
+const getCategoryBg = (category: string) => {
+  switch(category) {
+    case "Frontend": return "bg-blue-400/10 border-blue-400/30";
+    case "UI/UX": return "bg-purple-400/10 border-purple-400/30";
+    case "Full-Stack": return "bg-green-400/10 border-green-400/30";
+    default: return "bg-gray-400/10 border-gray-400/30";
   }
 };
 ---
 
-<section id="projects" class="w-full text-white py-20 px-6 scroll-mt-24 md:scroll-mt-28">
-  <div class="max-w-6xl mx-auto">
+<section id="projects" class="relative w-full text-white py-32 px-6 overflow-hidden scroll-mt-24">
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0a192f] via-[#112240] to-[#0a192f]"></div>
+  
+  <!-- Elementos decorativos -->
+  <div class="absolute top-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-40 left-10 w-80 h-80 bg-green-400/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+
+  <div class="relative max-w-7xl mx-auto">
     
-    <!-- Header con título y línea decorativa -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-green-400 mb-4">Mis Proyectos</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full mb-6"></div>
+    <!-- Header -->
+    <div class="mb-20">
+      <div class="inline-flex items-center space-x-3 mb-4">
+        <span class="text-green-400 font-mono text-sm">03.</span>
+        <h2 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Proyectos</h2>
+      </div>
+      <div class="w-32 h-0.5 bg-gradient-to-r from-green-400 to-transparent mb-6"></div>
+      <p class="text-gray-400 text-lg max-w-2xl">Una selección de mis trabajos más recientes. Cada proyecto representa un desafío único y una oportunidad de aprendizaje.</p>
     </div>
 
     <!-- Proyecto destacado -->
     {projects.filter(p => p.featured).map(project => (
-      <div class="mb-16">
-        <div class="text-center mb-8">
-          <h3 class="text-2xl font-bold text-white mb-2">Proyecto Destacado</h3>
-          <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
+      <div class="mb-24">
+        <div class="flex items-center space-x-3 mb-8">
+          <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          <h3 class="text-2xl font-bold text-white">Proyecto Destacado</h3>
         </div>
 
-        <!-- Card móvil (layout vertical) -->
-        <a href={project.link} class="group block md:hidden" target="_blank">
-          <div class="overflow-hidden rounded-2xl shadow-2xl border border-gray-700/50 bg-[#0a0a0a]">
-            <img
-              src={project.image}
-              alt={project.title}
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-5">
-              <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-3`}>
-                {project.category}
+        <a href={project.link} target="_blank" rel="noopener noreferrer" class="group block">
+          <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-green-400/30 transition-all duration-500">
+            
+            <!-- Layout responsive -->
+            <div class="grid lg:grid-cols-2 gap-0">
+              
+              <!-- Imagen -->
+              <div class="relative h-64 lg:h-auto overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0a192f]/80 via-[#0a192f]/40 lg:via-[#0a192f]/60 to-transparent"></div>
+                
+                <!-- Badge flotante -->
+                <div class="absolute top-6 left-6">
+                  <div class={`px-4 py-2 ${getCategoryBg(project.category)} backdrop-blur-md rounded-full border text-sm font-semibold`}>
+                    <span class={`bg-gradient-to-r ${getCategoryColor(project.category)} bg-clip-text text-transparent`}>
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-3">
-                {project.title}
-              </h3>
-              <p class="text-sm text-gray-200 mb-4 leading-relaxed">
-                {project.description}
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                {project.technologies.slice(0, 4).map(tech => (
-                  <span class="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2 text-green-400 font-semibold">
-                  <span>Ver Proyecto</span>
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+              <!-- Contenido -->
+              <div class="p-8 lg:p-12 flex flex-col justify-center">
+                
+                <!-- Año -->
+                <div class="text-green-400 font-mono text-sm mb-3">{project.year}</div>
+                
+                <!-- Título -->
+                <h4 class="text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
+                  {project.title}
+                </h4>
+
+                <!-- Descripción -->
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                <!-- Tecnologías -->
+                <div class="mb-6">
+                  <div class="text-xs text-gray-500 uppercase tracking-wider mb-3">Stack Tecnológico</div>
+                  <div class="flex flex-wrap gap-2">
+                    {project.technologies.map(tech => (
+                      <span class="px-3 py-1.5 bg-white/5 backdrop-blur-sm text-gray-300 text-sm rounded-lg border border-white/10 hover:border-green-400/30 transition-colors duration-300">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="flex items-center space-x-2 text-green-400 font-semibold group-hover:text-white transition-colors duration-300">
+                  <span>Ver proyecto completo</span>
+                  <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                   </svg>
                 </div>
               </div>
             </div>
-          </div>
-        </a>
 
-        <!-- Card escritorio/tablet (layout con overlay) -->
-        <a href={project.link} class="group hidden md:block" target="_blank">
-          <div class="relative overflow-hidden rounded-2xl shadow-2xl border border-gray-700/50 hover:border-green-400/50 transition-all duration-500">
-            <div class="relative h-[500px] lg:h-[600px] overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            </div>
-            <div class="absolute bottom-0 left-0 right-0 p-8">
-              <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-4`}>
-                {project.category}
-              </div>
-              <h3 class="text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
-                {project.title}
-              </h3>
-              <p class="text-lg text-gray-100 mb-6 max-w-3xl leading-relaxed">
-                {project.description}
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                {project.technologies.map(tech => (
-                  <span class="px-3 py-1 bg-gray-800/50 text-gray-300 text-sm rounded-lg border border-gray-700/50">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div class="flex items-center space-x-2 text-green-400 font-semibold group-hover:text-white transition-colors duration-300">
-                <span>Ver Proyecto</span>
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </div>
-            </div>
+            <!-- Efecto hover -->
+            <div class="absolute inset-0 bg-gradient-to-r from-green-400/0 via-green-400/5 to-green-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
           </div>
         </a>
       </div>
     ))}
 
-    <!-- Otros proyectos -->
+    <!-- Grid de proyectos -->
     <div class="mb-16">
-      <div class="text-center mb-8">
-        <h3 class="text-2xl font-bold text-white mb-2">Otros Proyectos</h3>
-        <div class="w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-500 mx-auto rounded-full"></div>
+      <div class="flex items-center space-x-3 mb-8">
+        <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+        <h3 class="text-2xl font-bold text-white">Más Proyectos</h3>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
         {projects.filter(p => !p.featured).map(project => (
-          <>
-            <!-- Card móvil (layout vertical) -->
-            <a href={project.link} class="group block md:hidden" target="_blank">
-              <div class="overflow-hidden rounded-xl shadow-lg border border-gray-700/50 bg-[#0a0a0a]">
+          <a href={project.link} target="_blank" rel="noopener noreferrer" class="group block h-full">
+            <div class="relative h-full overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-green-400/30 transition-all duration-500 hover:transform hover:translate-y-[-8px]">
+              
+              <!-- Imagen con overlay -->
+              <div class="relative h-56 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  class="w-full h-40 object-cover"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div class="p-5">
-                  <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-2`}>
-                    {project.category}
-                  </div>
-                  <h3 class="text-xl font-bold text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p class="text-gray-200 mb-3 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-3">
-                    {project.technologies.slice(0, 3).map(tech => (
-                      <span class="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div class="flex items-center space-x-2 text-green-400 font-semibold text-sm">
-                    <span>Ver Proyecto</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-[#0a192f]/60 to-transparent"></div>
+                
+                <!-- Badge categoría -->
+                <div class="absolute top-4 right-4">
+                  <div class={`px-3 py-1.5 ${getCategoryBg(project.category)} backdrop-blur-md rounded-full border text-xs font-semibold`}>
+                    <span class={`bg-gradient-to-r ${getCategoryColor(project.category)} bg-clip-text text-transparent`}>
+                      {project.category}
+                    </span>
                   </div>
                 </div>
-              </div>
-            </a>
 
-            <!-- Card escritorio/tablet (layout con overlay) -->
-            <a href={project.link} class="group hidden md:block" target="_blank">
-              <div class="relative overflow-hidden rounded-xl shadow-lg border border-gray-700/50 hover:border-green-400/50 transition-all duration-500 h-[350px]">
-                <div class="relative h-full overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                  <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(project.category)} mb-3`}>
-                    {project.category}
-                  </div>
-                  <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p class="text-gray-100 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 3).map(tech => (
-                      <span class="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded border border-gray-700/50">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div class="flex items-center space-x-2 text-green-400 font-semibold text-sm group-hover:text-white transition-colors duration-300">
-                    <span>Ver Proyecto</span>
-                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                  </div>
+                <!-- Año -->
+                <div class="absolute bottom-4 left-4 text-green-400 font-mono text-xs">
+                  {project.year}
                 </div>
               </div>
-            </a>
-          </>
+
+              <!-- Contenido -->
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors duration-300">
+                  {project.title}
+                </h4>
+
+                <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+                  {project.description}
+                </p>
+
+                <!-- Tecnologías principales -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.slice(0, 3).map(tech => (
+                    <span class="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded border border-white/10">
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span class="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded border border-white/10">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+
+                <!-- Link -->
+                <div class="flex items-center space-x-2 text-green-400 font-medium text-sm group-hover:text-white transition-colors duration-300">
+                  <span>Ver detalles</span>
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Efecto hover sutil -->
+              <div class="absolute inset-0 bg-gradient-to-br from-green-400/0 via-green-400/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"></div>
+            </div>
+          </a>
         ))}
+      </div>
+    </div>
+
+    <!-- CTA final -->
+    <div class="text-center mt-16">
+      <div class="inline-block p-8 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
+        <h4 class="text-2xl font-bold text-white mb-3">¿Tienes un proyecto en mente?</h4>
+        <p class="text-gray-400 mb-6 max-w-md">Estoy siempre abierto a discutir nuevas oportunidades y colaboraciones</p>
+        <a href="#contact" class="inline-flex items-center space-x-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-green-400/20 hover:shadow-green-400/40 hover:scale-105">
+          <span>Contáctame</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </a>
       </div>
     </div>
 
   </div>
 </section>
+
+<style>
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -3,101 +3,140 @@ const skills = [
   {
     category: "Frontend",
     items: [
-      { name: "JavaScript", icon: "img/javascript.svg", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", level: "Avanzado" },
-      { name: "TypeScript", icon: "img/typescript.svg", url: "https://www.typescriptlang.org/", level: "Intermedio" },
-      { name: "Angular", icon: "img/angular.svg", url: "https://angular.io/", level: "Intermedio" },
-      { name: "Tailwind", icon: "img/Tailwind.svg", url: "https://tailwindcss.com/", level: "Avanzado" }
+      { name: "JavaScript", icon: "img/javascript.svg", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", level: 90 },
+      { name: "TypeScript", icon: "img/typescript.svg", url: "https://www.typescriptlang.org/", level: 75 },
+      { name: "Angular", icon: "img/angular.svg", url: "https://angular.io/", level: 70 },
+      { name: "Tailwind", icon: "img/Tailwind.svg", url: "https://tailwindcss.com/", level: 95 }
     ]
   },
   {
     category: "Backend",
     items: [
-      { name: "PHP", icon: "img/php.svg", url: "https://www.php.net/", level: "Avanzado" },
-      { name: "Laravel", icon: "img/laravel.svg", url: "https://laravel.com/", level: "Avanzado" }
+      { name: "PHP", icon: "img/php.svg", url: "https://www.php.net/", level: 85 },
+      { name: "Laravel", icon: "img/laravel.svg", url: "https://laravel.com/", level: 88 }
     ]
   },
   {
     category: "Herramientas",
     items: [
-      { name: "Figma", icon: "img/figma.svg", url: "https://www.figma.com/", level: "Intermedio" },
-      { name: "Astro", icon: "favicon.svg", url: "https://astro.build/", level: "Avanzado" }
+      { name: "Figma", icon: "img/figma.svg", url: "https://www.figma.com/", level: 80 },
+      { name: "Astro", icon: "favicon.svg", url: "https://astro.build/", level: 92 }
     ]
   }
 ];
 
-const getLevelColor = (level: string) => {
-  switch(level) {
-    case "Avanzado": return "text-green-400";
-    case "Intermedio": return "text-blue-400";
-    case "Básico": return "text-yellow-400";
-    default: return "text-gray-400";
-  }
+const getBarColor = (level: number) => {
+  if (level >= 85) return "from-green-400 to-emerald-500";
+  if (level >= 70) return "from-blue-400 to-cyan-500";
+  return "from-purple-400 to-pink-500";
 };
 
-const getLevelBgColor = (level: string) => {
-  switch(level) {
-    case "Avanzado": return "bg-green-400/20 border-green-400/30";
-    case "Intermedio": return "bg-blue-400/20 border-blue-400/30";
-    case "Básico": return "bg-yellow-400/20 border-yellow-400/30";
-    default: return "bg-gray-400/20 border-gray-400/30";
-  }
+const getGlowColor = (level: number) => {
+  if (level >= 85) return "shadow-green-400/50";
+  if (level >= 70) return "shadow-blue-400/50";
+  return "shadow-purple-400/50";
 };
 ---
 
-<section class="w-full text-white py-20 px-6">
-  <div class="max-w-6xl mx-auto">
+<section class="relative w-full text-white py-32 px-6 overflow-hidden" id="skills">
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#112240] via-[#0a192f] to-[#112240]"></div>
+  
+  <!-- Elementos decorativos -->
+  <div class="absolute top-40 left-20 w-64 h-64 bg-green-400/5 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-20 right-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+
+  <div class="relative max-w-7xl mx-auto">
     
-    <!-- Header con título y línea decorativa -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-green-400 mb-4">Mis Habilidades</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full mb-6"></div>
+    <!-- Header -->
+    <div class="mb-20">
+      <div class="inline-flex items-center space-x-3 mb-4">
+        <span class="text-green-400 font-mono text-sm">02.</span>
+        <h2 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Habilidades</h2>
+      </div>
+      <div class="w-32 h-0.5 bg-gradient-to-r from-green-400 to-transparent"></div>
+      <p class="mt-6 text-gray-400 text-lg max-w-2xl">Tecnologías y herramientas con las que trabajo día a día para crear experiencias digitales excepcionales.</p>
     </div>
 
     <!-- Categorías de habilidades -->
-    <div class="space-y-12">
-      {skills.map(category => (
-        <div class="space-y-6">
+    <div class="space-y-16">
+      {skills.map((category, idx) => (
+        <div class="space-y-8">
+          
           <!-- Título de categoría -->
-          <div class="text-center">
-            <h3 class="text-2xl font-bold text-white mb-2">{category.category}</h3>
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto rounded-full"></div>
+          <div class="flex items-center space-x-4">
+            <div class="w-10 h-10 bg-gradient-to-br from-green-400/20 to-blue-500/20 rounded-lg flex items-center justify-center">
+              <span class="text-green-400 font-bold text-lg">{idx + 1}</span>
+            </div>
+            <h3 class="text-3xl font-bold text-white">{category.category}</h3>
+            <div class="flex-1 h-px bg-gradient-to-r from-white/20 to-transparent"></div>
           </div>
 
           <!-- Grid de habilidades -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="grid md:grid-cols-2 gap-6">
             {category.items.map(skill => (
               <a 
                 href={skill.url} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                class="group relative overflow-hidden"
+                class="group block"
               >
-                <div class="relative bg-gradient-to-br from-[#112240] to-[#1a365d] p-6 rounded-xl border border-gray-700/50 hover:border-green-400/50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-green-400/20">
+                <div class="relative p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-green-400/30 transition-all duration-300 hover:transform hover:translate-y-[-4px]">
                   
-                  <!-- Fondo con patrón -->
-                  <div class="absolute inset-0 bg-gradient-to-br from-transparent via-green-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  <!-- Contenido principal -->
-                  <div class="relative z-10 flex flex-col items-center text-center space-y-4">
-                    
-                    <!-- Icono con contenedor -->
-                    <div class="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-[#0a192f] to-[#1e3a8a] rounded-full shadow-lg group-hover:shadow-green-400/25 transition-all duration-300 group-hover:scale-110">
-                      <img src={skill.icon} alt={skill.name} class="w-12 h-12 transition-transform duration-300 group-hover:rotate-12" />
+                  <!-- Header del skill -->
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-4">
+                      <!-- Icono -->
+                      <div class="w-14 h-14 bg-gradient-to-br from-white/10 to-white/5 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <img src={skill.icon} alt={skill.name} class="w-8 h-8" />
+                      </div>
+                      <!-- Nombre -->
+                      <div>
+                        <h4 class="text-white text-xl font-semibold group-hover:text-green-400 transition-colors duration-300">
+                          {skill.name}
+                        </h4>
+                        <p class="text-gray-500 text-sm">Ver documentación →</p>
+                      </div>
                     </div>
                     
-                    <!-- Nombre de la habilidad -->
-                    <h4 class="text-white text-lg font-semibold group-hover:text-green-400 transition-colors duration-300">
-                      {skill.name}
-                    </h4>
-                    
-                    <!-- Nivel de experiencia -->
-                    <div class={`px-3 py-1 rounded-full text-xs font-medium ${getLevelBgColor(skill.level)} border ${getLevelColor(skill.level)}`}>
-                      {skill.level}
+                    <!-- Porcentaje -->
+                    <div class="text-right">
+                      <div class={`text-3xl font-bold bg-gradient-to-r ${getBarColor(skill.level)} bg-clip-text text-transparent`}>
+                        {skill.level}%
+                      </div>
                     </div>
                   </div>
 
-                  <!-- Efecto de brillo en hover -->
-                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                  <!-- Barra de progreso -->
+                  <div class="relative h-3 bg-white/5 rounded-full overflow-hidden">
+                    <!-- Barra de fondo con animación -->
+                    <div 
+                      class={`absolute inset-y-0 left-0 bg-gradient-to-r ${getBarColor(skill.level)} rounded-full transition-all duration-1000 ease-out ${getGlowColor(skill.level)} group-hover:shadow-lg`}
+                      style={`width: ${skill.level}%;`}
+                    >
+                      <!-- Efecto de brillo animado -->
+                      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
+                    </div>
+                    
+                    <!-- Puntos de referencia -->
+                    <div class="absolute inset-0 flex justify-between px-0.5">
+                      <div class="w-px h-full bg-white/10"></div>
+                      <div class="w-px h-full bg-white/10"></div>
+                      <div class="w-px h-full bg-white/10"></div>
+                      <div class="w-px h-full bg-white/10"></div>
+                    </div>
+                  </div>
+
+                  <!-- Indicador de nivel -->
+                  <div class="mt-3 flex items-center justify-between text-xs">
+                    <span class="text-gray-500">Nivel de dominio</span>
+                    <span class={`font-semibold ${skill.level >= 85 ? 'text-green-400' : skill.level >= 70 ? 'text-blue-400' : 'text-purple-400'}`}>
+                      {skill.level >= 85 ? 'Experto' : skill.level >= 70 ? 'Avanzado' : 'Intermedio'}
+                    </span>
+                  </div>
+
+                  <!-- Efecto hover -->
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
                 </div>
               </a>
             ))}
@@ -106,5 +145,48 @@ const getLevelBgColor = (level: string) => {
       ))}
     </div>
 
+    <!-- Call to action final -->
+    <div class="mt-20 text-center">
+      <div class="inline-block p-8 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
+        <p class="text-gray-300 text-lg mb-4">¿Quieres ver estas habilidades en acción?</p>
+        <a href="/#projects" class="inline-flex items-center space-x-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg shadow-green-400/20 hover:shadow-green-400/40 hover:scale-105">
+          <span>Explorar proyectos</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<style>
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s infinite;
+  }
+</style>

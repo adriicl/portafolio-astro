@@ -30,9 +30,16 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="w-full bg-gradient-to-br backdrop-blur-xl text-gray-300 py-10 border-t border-green-400/20"
+  class="relative w-full bg-gradient-to-br from-[#0a192f] via-[#112240] to-[#1a365d] text-gray-300 py-12 border-t border-green-400/30 overflow-hidden"
 >
-  <div class="max-w-5xl mx-auto px-6">
+  <!-- Elementos decorativos sutiles -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-1/4 w-32 h-32 bg-green-400/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-40 h-40 bg-blue-400/5 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 right-0 w-24 h-24 bg-purple-400/5 rounded-full blur-2xl"></div>
+  </div>
+  
+  <div class="relative max-w-5xl mx-auto px-6">
     <!-- Contenido principal del footer -->
     <div class="grid md:grid-cols-3 gap-8 mb-8">
       <!-- Columna 1: Información personal -->
